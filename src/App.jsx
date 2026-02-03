@@ -30,7 +30,6 @@ function App() {
       const res = await axios.post(`${AUTH_URL}/login`, { username, password });
       setToken(res.data.token);
       setMessage("Logged in successfully!");
-      // Note: No need to call fetchTasks here manually anymore; useEffect does it.
     } catch (err) {
       console.error(err);
       setMessage(
