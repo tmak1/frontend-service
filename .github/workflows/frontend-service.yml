@@ -1,0 +1,44 @@
+name: Frontend Service CI
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "./**"
+      - ".github/workflows/frontend-service.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "./**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: frontend-service/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci # 'npm ci' is faster/cleaner than 'npm install' for CI
+
+      - name: Run Unit Tests
+        run: npm test
+
+  build-image:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Note: We need to pass the build args if you use ENV vars in build
+      # But for this stage, we just check if Dockerfile is valid
+      - name: Build Docker Image
+        run: docker build . -t frontend-service:test

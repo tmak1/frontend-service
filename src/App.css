@@ -1,0 +1,223 @@
+/* --- 1. RESET & LAYOUT --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.status {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  min-height: 20px;
+}
+
+/* --- 2. FORMS & BUTTONS --- */
+.auth-form,
+.task-list {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* --- 3. TASK LIST ITEMS --- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border-color: #007bff;
+}
+
+li span.title {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+li span.owner {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #495057;
+  background-color: #e9ecef;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #dee2e6;
+  white-space: nowrap;
+  margin-left: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- 4. NEW CLASSES (Extracted from JSX) --- */
+
+/* Checkbox specific styles */
+.checkbox-group {
+  margin-bottom: 15px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input {
+  width: auto; /* Overrides the 100% width on generic inputs */
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+/* Text Links */
+.switch-mode-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.switch-mode-link:hover {
+  text-decoration: underline;
+}
+
+/* Task Creation Area */
+.create-task-container {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+/* --- 5. BUTTON VARIANTS --- */
+
+/* Green Button (Register) */
+.btn-success {
+  background-color: #28a745;
+}
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Teal Button (Add Task) */
+.btn-info {
+  background-color: #17a2b8;
+}
+.btn-info:hover {
+  background-color: #138496;
+}
+
+/* Grey Button (Logout) */
+.btn-secondary {
+  background-color: #6c757d;
+  margin-top: 20px;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Spacing Utility */
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* Wrapper to keep badge and button together */
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Red Delete Button */
+.btn-danger-small {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: auto; /* IMPORTANT: Overrides global 100% width */
+}
+
+.btn-danger-small:hover {
+  background-color: #c82333;
+}

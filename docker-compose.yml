@@ -1,0 +1,23 @@
+services:
+  frontend-service:
+    container_name: frontend-service
+    image: frontend-service:latest
+    build:
+      context: .
+      args:
+        - PORT=${PORT}
+    ports:
+      - "${PORT}:5173"
+    volumes:
+      - ./src:/frontend-service/src
+      - ./vite.config.js:/frontend-service/vite.config.js
+      - ./package.json:/frontend-service/package.json
+      - /frontend-service/node_modules
+    env_file:
+      - .env
+    networks:
+      - taskmaster-net
+
+networks:
+  taskmaster-net:
+    external: true
