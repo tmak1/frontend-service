@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: "18"
           cache: "npm"
-          cache-dependency-path: frontend-service/package-lock.json
+          cache-dependency-path: ./package-lock.json
 
       - name: Install Dependencies
         run: npm ci # 'npm ci' is faster/cleaner than 'npm install' for CI
